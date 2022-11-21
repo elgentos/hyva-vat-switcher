@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+?>
+
+<div x-data="initVatSwitcher()">
+    <select name="vat-switcher" x-on:change="setVatMode(event.target.value)">
+        <?php foreach ($block->getData('options') as $value => $option) : ?>
+            <option
+                value="<?= $escaper->escapeHtmlAttr($value) ?>"
+                :selected="isSelected('<?= $escaper->escapeHtmlAttr($value) ?>')"
+            >
+                <?= $escaper->escapeHtml($option) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<script>
+    function initVatSwitcher() {
+        return {
+            isSelected(value) {
+                return vatSwitcher.getVatMode() === value;
+            },
+
+            setVatMode(value) {
+                vatSwitcher.setVatMode(value)
+
+                window.dispatchEvent(
+                    new CustomEvent('vat-switch', {detail: value})
+                );
+            }
+        }
+    }
+</script>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceBlock name="header-content">
+
+            <block name="vat-switcher" template="Hyva_VatSwitcher::vat-switcher.phtml">
+                <arguments>
+                    <argument name="options" xsi:type="array">
+                        <item name="excluding" translate="true" xsi:type="string">Excl. VAT</item>
+                        <item name="including" translate="true" xsi:type="string">Incl. VAT</item>
+                    </argument>
+                </arguments>
+            </block>
+
+        </referenceBlock>
+
+    </body>
+</page>

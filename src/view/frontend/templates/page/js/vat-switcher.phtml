@@ -1,0 +1,45 @@
+<?php
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Magento\Framework\Escaper;
+
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var \Hyva\VatSwitcher\ViewModel\VatSwitcher $vatSwitcherViewModel */
+$vatSwitcherViewModel = $viewModels->require(\Hyva\VatSwitcher\ViewModel\VatSwitcher::class);
+$defaultVatMode = $vatSwitcherViewModel->getDefaultValue();
+?>
+
+<script>
+    'use strict';
+    (function( vatSwitcher, undefined ) {
+        const defaultVatMode = '<?= /* @noEscape */ $defaultVatMode ?>';
+
+        vatSwitcher.getVatModeFromBrowserStorage = () => {
+            const browserStorage = hyva.getBrowserStorage();
+            if (! browserStorage) {
+                console.warn("Hyvä helpers are not loaded yet. Make sure they are included before this script");
+                return null;
+            }
+
+            return browserStorage.getItem('vat-switch-mode');
+        }
+
+        vatSwitcher.setVatMode = (value) => {
+            const browserStorage = hyva.getBrowserStorage();
+
+            if (browserStorage) {
+                browserStorage.setItem('vat-switch-mode', value);
+            } else {
+                console.warn("Hyvä helpers are not loaded yet. Make sure they are included before this script");
+            }
+        }
+
+        vatSwitcher.getVatMode = () => {
+            return vatSwitcher.getVatModeFromBrowserStorage() || defaultVatMode;
+        }
+    }( window.vatSwitcher = window.vatSwitcher || {} ));
+</script>

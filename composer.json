@@ -1,0 +1,19 @@
+{
+    "name": "hyva-themes/vat-switcher",
+    "license": "proprietary",
+    "description": "Common functionality for all Fooman Pdf extensions",
+    "type": "magento2-module",
+    "autoload": {
+        "psr-4": {
+            "Hyva\\VatSwitcher\\": "src/"
+        },
+        "files": [
+            "src/registration.php"
+        ]
+    },
+    "require": {
+        "hyva-themes/magento2-theme-module": ">=1.1" 
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
