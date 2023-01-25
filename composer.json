@@ -1,5 +1,5 @@
 {
-    "name": "hyva-themes/vat-switcher",
+    "name": "elgentos/vat-switcher",
     "license": "proprietary",
     "description": "Common functionality for all Fooman Pdf extensions",
     "type": "magento2-module",
