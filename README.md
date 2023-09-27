@@ -21,7 +21,7 @@ and excluding price.
                         vatMode: vatSwitcher.getVatMode(),
 
                         eventListeners: {
-                            ['@vat-switched.window'](event) {
+                            ['@vat-switch.window'](event) {
                                 this.vatMode = event.detail;
                             }
                         }
@@ -41,7 +41,7 @@ function initExistingComponent() {
         vatMode: vatSwitcher.getVatMode(),
 
         eventListeners: {
-            ['@vat-switched.window'](event) {
+            ['@vat-switch.window'](event) {
                 this.vatMode = event.detail;
             }
         }
