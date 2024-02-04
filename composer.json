@@ -1,7 +1,7 @@
 {
     "name": "elgentos/vat-switcher",
     "license": "proprietary",
-    "description": "Common functionality for all Fooman Pdf extensions",
+    "description": "Vat switcher to let customer decide on how to show their prices",
     "type": "magento2-module",
     "autoload": {
         "psr-4": {
