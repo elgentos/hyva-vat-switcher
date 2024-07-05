@@ -1,6 +1,6 @@
-# Hyva VatSwitcher
+# Elgentos Hyva VatSwitcher
 
-Adds a vat switcher to the header component to let customer decide on how
+Adds a B2B VAT switcher to the header component to let customer decide on how
 to show their prices; including or excluding VAT. The decision is saved to 
 the browser storage.
 
